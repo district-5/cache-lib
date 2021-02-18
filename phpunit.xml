@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<phpunit
+    backupGlobals="true"
+    backupStaticAttributes="false"
+    cacheTokens="false"
+    colors="true"
+    convertErrorsToExceptions="true"
+    convertNoticesToExceptions="true"
+    convertWarningsToExceptions="true"
+    forceCoversAnnotation="false"
+    processIsolation="false"
+    stopOnError="false"
+    stopOnFailure="false"
+    stopOnIncomplete="false"
+    stopOnSkipped="false"
+    timeoutForSmallTests="1"
+    timeoutForMediumTests="10"
+    timeoutForLargeTests="60"
+    bootstrap="vendor/autoload.php"
+    verbose="false">
+    <testsuites>
+        <testsuite name="All CacheLib Tests">
+            <directory>tests/CacheLibTests</directory>
+        </testsuite>
+    </testsuites>
+
+    <filter>
+        <whitelist>
+            <directory>src/CacheLib</directory>
+            <exclude>
+                <directory>tests/CacheLibTests</directory>
+            </exclude>
+        </whitelist>
+    </filter>
+    <logging>
+        <log type="testdox-html" target="build/testdox.html"/>
+    </logging>
+</phpunit>
