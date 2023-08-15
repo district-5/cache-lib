@@ -16,14 +16,14 @@
  *
  */
 
-namespace District5Tests\CacheLib\Tests\Helper;
+namespace District5Tests\CacheLibTests\Helper;
 
 use District5\CacheLib\Helper\FileSystemHelper;
 use PHPUnit\Framework\TestCase;
 
 /**
  * Class FileSystemHelperTest
- * @package District5\CacheLib\Tests\Helper
+ * @package District5Tests\CacheLibTests\Helper
  */
 class FileSystemHelperTest extends TestCase
 {
@@ -59,7 +59,7 @@ class FileSystemHelperTest extends TestCase
         $dir = new FileSystemHelper();
         $dir->recursivelyDeleteFromDirectory($fullPath . DIRECTORY_SEPARATOR . '1');
         $dir->recursivelyDeleteFromDirectory($fullPath);
-        $this->assertFileNotExists($fullPath . DIRECTORY_SEPARATOR . '1');
-        $this->assertFileNotExists($fullPath . DIRECTORY_SEPARATOR . 'dir' . DIRECTORY_SEPARATOR . '2');
+        $this->assertFileDoesNotExist($fullPath . DIRECTORY_SEPARATOR . '1');
+        $this->assertFileDoesNotExist($fullPath . DIRECTORY_SEPARATOR . 'dir' . DIRECTORY_SEPARATOR . '2');
     }
 }

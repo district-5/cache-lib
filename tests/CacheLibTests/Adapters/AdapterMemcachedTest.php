@@ -29,19 +29,21 @@ use PHPUnit\Framework\TestCase;
 class AdapterMemcachedTest extends TestCase
 {
     /**
-     * @var AdapterMemcached
+     * @var AdapterMemcached|null
      */
-    private $adapter = null;
+    private ?AdapterMemcached $adapter = null;
 
-    private $name = null;
+    /**
+     * @var string|null
+     */
+    private ?string $name = null;
 
-    public function setUp()
+    public function setUp(): void
     {
         if (!class_exists('\Memcached')) {
             $this->markTestSkipped(
                 'Memcached class is not present. Try installing Memcached (and the PHP driver)'
             );
-            return;
         }
         $this->name = md5(__CLASS__);
         $cacheConfig = [

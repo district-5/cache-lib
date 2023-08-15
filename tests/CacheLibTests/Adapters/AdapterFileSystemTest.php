@@ -31,29 +31,29 @@ use PHPUnit\Framework\TestCase;
 class AdapterFileSystemTest extends TestCase
 {
     /**
-     * @var AdapterFileSystem
+     * @var AdapterFileSystem|null
      */
-    private $adapter = null;
+    private ?AdapterFileSystem $adapter = null;
 
     /**
-     * @var FileSystemHelper
+     * @var FileSystemHelper|null
      */
-    private $dir = null;
-
-    /**
-     * @var string|null
-     */
-    private $path = null;
+    private ?FileSystemHelper $dir = null;
 
     /**
      * @var string|null
      */
-    private $name = 'foo';
+    private ?string $path = null;
+
+    /**
+     * @var string|null
+     */
+    private ?string $name = 'foo';
 
     /**
      * @throws Exception
      */
-    public function setUp()
+    public function setUp(): void
     {
         $this->dir = new FileSystemHelper();
         $tmpDir = sys_get_temp_dir();

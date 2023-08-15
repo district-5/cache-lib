@@ -36,7 +36,7 @@ class AdapterFileSystem extends AdapterAbstract
      *
      * @var FileSystemHelper|null
      */
-    private $helper = null;
+    private ?FileSystemHelper $helper = null;
 
     /**
      * The path to the writable folder
@@ -262,5 +262,13 @@ class AdapterFileSystem extends AdapterAbstract
 
         return false;
         // @codeCoverageIgnoreEnd
+    }
+
+    /**
+     * @return null
+     */
+    public function getRawAdapter(): mixed
+    {
+        return null;
     }
 }

@@ -113,6 +113,11 @@ abstract class AdapterAbstract
     abstract public function flush(): bool;
 
     /**
+     * @return mixed
+     */
+    abstract public function getRawAdapter(): mixed;
+
+    /**
      * Get a key name for a cache value.
      *
      * @param string $name

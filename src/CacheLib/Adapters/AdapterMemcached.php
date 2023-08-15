@@ -289,4 +289,12 @@ class AdapterMemcached extends AdapterAbstract
         return false;
         // @codeCoverageIgnoreEnd
     }
+
+    /**
+     * @return Memcached
+     */
+    public function getRawAdapter(): mixed
+    {
+        return $this->memcached;
+    }
 }

@@ -39,13 +39,12 @@ class AdapterApcTest extends TestCase
     /**
      * @throws ApcExtensionNotLoaded
      */
-    public function setUp()
+    public function setUp(): void
     {
         if (!extension_loaded('apc') && !extension_loaded('apcu')) {
             $this->markTestSkipped(
                 'apc extension is not loaded. Try setting apc.enable_cli=1.'
             );
-            return;
         }
         $this->name = md5(__CLASS__);
         $this->adapter = new AdapterApc(['prefix' => 'TEST_']);

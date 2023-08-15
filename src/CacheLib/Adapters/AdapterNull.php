@@ -117,4 +117,12 @@ class AdapterNull extends AdapterAbstract
     {
         return false;
     }
+
+    /**
+     * @return null
+     */
+    public function getRawAdapter(): mixed
+    {
+        return null;
+    }
 }

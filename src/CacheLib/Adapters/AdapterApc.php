@@ -33,7 +33,7 @@ class AdapterApc extends AdapterAbstract
     /**
      * @var bool|null
      */
-    private $apc = null;
+    private ?bool $apc = null;
 
     /**
      * Construct, and check the presence of the APC extension
@@ -53,7 +53,7 @@ class AdapterApc extends AdapterAbstract
      * Check if apc is enabled
      * @throws ApcExtensionNotLoaded
      */
-    protected function checkExtension()
+    protected function checkExtension(): void
     {
         $this->apc = null;
         if (false !== extension_loaded('apc')) {
@@ -74,7 +74,7 @@ class AdapterApc extends AdapterAbstract
      * @param null|mixed $default
      * @return bool|int|float|array|object|null
      */
-    public function get(string $key, $default = null)
+    public function get(string $key, $default = null): mixed
     {
         if ($this->apc === true) {
             $record = apc_fetch(
@@ -215,5 +215,13 @@ class AdapterApc extends AdapterAbstract
             return apc_clear_cache();
         }
         return apcu_clear_cache();
+    }
+
+    /**
+     * @return null
+     */
+    public function getRawAdapter(): mixed
+    {
+        return null;
     }
 }

@@ -32,9 +32,9 @@ use Memcache;
 class AdapterMemcache extends AdapterAbstract
 {
     /**
-     * @var Memcache
+     * @var Memcache|null
      */
-    private $memcache = null;
+    private ?Memcache $memcache = null;
 
     /**
      * Construct the adapter, giving an array of servers.
@@ -292,5 +292,13 @@ class AdapterMemcache extends AdapterAbstract
 
         return false;
         // @codeCoverageIgnoreEnd
+    }
+
+    /**
+     * @return Memcache|null
+     */
+    public function getRawAdapter(): mixed
+    {
+        return $this->memcache;
     }
 }
